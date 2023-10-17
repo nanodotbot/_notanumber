@@ -1,0 +1,325 @@
+:root {
+    font-size: 10px;
+    --blue: #d1f3ff;
+    --green: #d1ffdd;
+    --pink: #ffd1dc;
+    
+    --blue-brighter: #e5f8ff;
+    --green-brighter: #e5ffeb;
+    --pink-brighter: #ffe5eb;
+
+    --blue-darker: #a9e9ff;
+    --green-darker: #a9ffc1;
+    --pink-darker: #ffbdcd;
+
+    --theme-color: var(--blue);
+    --theme-color-brighter: var(--blue-brighter); 
+    --theme-color-darker: var(--blue-darker); 
+
+    --dark-color: #181818;
+    --black: black;
+
+    --text: white;
+
+    --default-spacing: 1.5rem;
+
+    --font-size-normal: 1.9rem;
+    --font-size-small: 1.5rem;
+    --font-size-smallest: 1.4rem;
+
+    /* firefox scrollbar */
+    scrollbar-width: 1.5rem;
+    scrollbar-color: var(--theme-color) var(--dark-color);
+}
+
+/* chrome scrollbar */
+::-webkit-scrollbar {
+    width: 1.5rem;
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--theme-color);
+}
+::-webkit-scrollbar-track {
+    background: var(--dark-color);
+}
+
+::selection {
+    color: var(--theme-color);
+    background-color: var(--dark-color);
+}
+::-moz-selection {
+    color: var(--theme-color);
+    background-color: var(--dark-color);
+}
+
+@font-face {
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 100;
+    src: url('../Karla/static/Karla-ExtraLight.ttf');
+}
+@font-face {
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 200;
+    src: url('../Karla/static/Karla-Light.ttf');
+}
+@font-face {
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 300;
+    src: url('../Karla/static/Karla-Medium.ttf');
+}
+@font-face {
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../Karla/static/Karla-Regular.ttf');
+}
+
+html, body {
+    background-color: var(--dark-color);
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto auto auto;
+    align-content: center;
+
+    background-image: url('./media/abstract-uv-ultraviolet-light-composition.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+html, * {
+    box-sizing: border-box;
+
+    padding: 0;
+    margin: 0;
+
+    scroll-behavior: smooth;
+
+    font-family: 'Karla', 'Calibri Light', 'Calibri', sans-serif;
+    font-weight: 200;
+    font-size: var(--font-size-normal);
+    color: var(--text);
+}
+
+h1,
+h2 {
+    font-weight: 200;
+    line-height: 1;
+    letter-spacing: .1rem;
+    text-align: center;
+}
+
+h1 {
+    font-size: 4rem;
+}
+h2 {
+    font-size: 3.5rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--theme-color);
+}
+a:hover {
+    cursor: context-menu;
+    color: var(--theme-color-brighter);
+}
+
+#content-wrapper {
+    min-height: 100vh;
+}
+
+header {
+    display: grid;
+    align-items: center;
+
+    padding: calc(2 * var(--default-spacing)) 0;
+}
+
+header > h1 {
+    width: 600px;
+    max-width: 98vw;
+    padding: var(--default-spacing) var(--default-spacing);
+    margin: 0 auto;
+}
+
+header > h1 > span {
+    font-size: 4rem;
+    letter-spacing: .2rem;
+}
+header > h1 > #title {
+    color: var(--theme-color);
+}
+header > h1 > #cursor {
+    color: var(--pink);
+    animation: blink 1.2s linear infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 100%;
+    }
+    50% {
+        opacity: 0%;
+    }
+}
+
+main {
+    display: grid;
+    grid-template-rows: auto auto;
+    align-content: center;
+    justify-content: center;
+
+    width: 600px;
+    max-width: 98vw;
+    margin: calc(2 * var(--default-spacing)) auto;
+
+    text-align: center;
+}
+
+footer {
+    display: grid;
+    grid-template-rows: auto auto;
+    align-content: center;
+    justify-content: center;
+    gap: var(--default-spacing);
+
+    padding: calc(2 * var(--default-spacing)) 0;
+
+    text-align: center;
+    color: white;
+    /* background-color: var(--black); */
+}
+
+footer > p > a {
+    font-size: var(--font-size-small);
+}
+/* #credit {
+    margin-top: var(--default-spacing);
+} */
+
+.projects {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    align-content: center;
+    justify-content: center;
+    gap: var(--default-spacing);
+
+    width: 600px;
+    max-width: 98vw;
+}
+
+/* intersection observer */
+.intersection-left {
+    --transition-duration: 1s;
+    opacity: 0;
+    filter: blur(5px);
+    transform: translate(-100px, 0px);
+    transition: opacity var(--transition-duration), filter var(--transition-duration), transform calc(var(--transition-duration) / 2);
+}
+.intersection-right {
+    --transition-duration: 1s;
+    opacity: 0;
+    filter: blur(5px);
+    transform: translate(100px, 0px);
+    transition: opacity var(--transition-duration), filter var(--transition-duration), transform calc(var(--transition-duration) / 2);
+}
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate(0px, 0px);
+}
+
+a.project {
+    display: block;
+
+    width: 600px;
+    max-width: 98vw;
+    padding: var(--default-spacing);
+    border: .1rem solid var(--theme-color-darker);
+    margin: .1rem;
+}
+a.project:hover {
+    border: .2rem solid var(--theme-color-darker);
+    margin: 0;
+    /* box-shadow: 0 0 var(--default-spacing) calc(var(--default-spacing) / 5) var(--theme-color); */
+}
+
+.title {
+    color: var(--pink);
+    
+}
+
+.technologies {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: var(--default-spacing);
+}
+
+.technologies > p {
+    color: var(--blue);
+}
+
+.technologies > p.emphasize {
+    color: var(--pink);
+}
+
+a.project:hover > .title {
+    color: var(--pink-brighter);
+    font-weight: 200;
+}
+a.project:hover > .technologies > p {
+    color: var(--blue-brighter);
+}
+a.project:hover > .technologies > p.emphasize {
+    color: var(--pink-brighter);
+}
+
+#not-found-body {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
+#not-found-section {
+    width: 700px;
+    max-width: 98vw;
+    margin: 0 auto;
+}
+#not-found-section > h1, #not-found-section > p {
+    margin-bottom: var(--default-spacing);
+}
+
+#title-404 {
+    color: var(--theme-color);
+}
+
+@media screen and (max-width: 366px) {
+    html, * {
+        font-size: 1.7rem;
+    }
+    h1 {
+        font-size: 2.5rem;
+    }
+    h2 {
+        font-size: 2.2rem;
+    }
+    #title {
+        font-size: 2.5rem;
+    }
+    header > h1 > span {
+        font-size: 2.5rem;
+    }
+    footer > p > a {
+        font-size: var(--font-size-smallest);
+    }    
+}
