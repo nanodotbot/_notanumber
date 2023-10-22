@@ -283,6 +283,12 @@ a.project:hover > .technologies > p.emphasize {
     color: var(--pink-brighter);
 }
 
+#credit {
+    position: fixed;
+    bottom: var(--default-spacing);
+    left: calc(50% - 33px);
+}
+
 #not-found-body {
     height: 100vh;
     width: 100vw;

@@ -3,7 +3,7 @@ const texts = ['Webentwickler', 'Fullstack', 'Quietscheentchen'];
 
 let metaindex = 0;
 let index = 0;
-const timeout = 150;
+const timeout = 200;
 
 const writeLetters = () => {
     const text = texts[metaindex];
@@ -23,12 +23,13 @@ const writeLetters = () => {
     }
 
     const addLetters = () => {
-        if (index < text.length){
+        if (index < text.length+1){
+            // console.log(index, text.length);
             title.innerText = text.substring(0, index);
             index++;
             setTimeout(addLetters, timeout);
         } else {
-            setTimeout(removeLetters, timeout);
+            setTimeout(removeLetters, 1000);
         }
     };
     
