@@ -284,9 +284,7 @@ a.project:hover > .technologies > p.emphasize {
 }
 
 #credit {
-    position: fixed;
-    bottom: var(--default-spacing);
-    left: calc(50% - 33px);
+    margin-top: calc(3 * var(--default-spacing));
 }
 
 #not-found-body {
