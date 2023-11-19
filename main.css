@@ -23,9 +23,12 @@
 
     --default-spacing: 1.5rem;
 
-    --font-size-normal: 1.9rem;
+    --font-size-normal: 1.7rem;
     --font-size-small: 1.5rem;
     --font-size-smallest: 1.4rem;
+
+    --width: 700px;
+    --max-width: 96vw;
 
     /* firefox scrollbar */
     scrollbar-width: 1.5rem;
@@ -106,6 +109,7 @@ html, * {
     font-family: 'Karla', 'Calibri Light', 'Calibri', sans-serif;
     font-weight: 200;
     font-size: var(--font-size-normal);
+    line-height: 1.7;
     color: var(--text);
 }
 
@@ -139,7 +143,7 @@ a:hover {
 
 header, main, footer {
     width: 700px;
-    max-width: calc(98vw - (100% - 98vw));
+    max-width: var(--max-width);
     margin: 0 auto;
 
     text-align: center;
@@ -149,12 +153,12 @@ header {
     display: grid;
     align-items: center;
 
-    padding: calc(1.5 * var(--default-spacing)) 0;
+    padding: calc(3 * var(--default-spacing)) 0 calc(1.5 * var(--default-spacing)) 0;
 }
 
 header > h1 {
-    width: 700px;
-    max-width: calc(98vw - (100% - 98vw));
+    width: var(--width);
+    max-width: var(--max-width);
 
     padding: var(--default-spacing) 0;
 }
@@ -181,7 +185,7 @@ header > h1 > #cursor {
 }
 
 main {
-    margin: calc(2 * var(--default-spacing)) auto;
+    margin: 0 auto calc(4 * var(--default-spacing)) auto;
 
     display: grid;
     align-content: center;
@@ -204,6 +208,14 @@ footer {
     /* background-color: var(--black); */
 }
 
+#social {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    justify-content: center;
+    gap: var(--default-spacing);
+}
+
 footer > #social > a > svg {
     fill: var(--theme-color);
 }
@@ -215,23 +227,28 @@ footer > div > a {
     font-size: var(--font-size-small);
 }
 footer > hr {
-    width: 700px;
-    max-width: calc(98vw - (100% - 98vw));
+    width: var(--width);
+    max-width: var(--max-width);
 
     margin: 0 auto;
 }
 
 #introduction {
-    width: 700px;
-    max-width: calc(98vw - (100% - 98vw));
+    width: var(--width);
+    max-width: var(--max-width);
     margin: 0 auto;
+}
+#introduction > p {
+    width: var(--width);
+    max-width: var(--max-width);
+    margin: var(--default-spacing) auto 0 auto;
 
     text-align: left;
 }
 
 .projects {
-    width: 700px;
-    max-width: calc(98vw - (100% - 98vw));
+    width: var(--width);
+    max-width: var(--max-width);
     margin: 0 auto;
 
     display: grid;
@@ -243,8 +260,8 @@ footer > hr {
 a.project {
     display: block;
 
-    width: 700px;
-    max-width: calc(98vw - (100% - 98vw));
+    width: var(--width);
+    max-width: var(--max-width);
 
     padding: var(--default-spacing);
     border: .1rem solid var(--theme-color-darker);
@@ -257,13 +274,10 @@ a.project:hover {
 }
 
 .projects > h2 {
-    width: 700px;
-    max-width: calc(98vw - (100% - 98vw));
+    width: var(--width);
+    max-width: var(--max-width);
 
-    margin: calc(2 * var(--default-spacing)) auto var(--default-spacing) auto;
-}
-.projects > h2:nth-of-type(1) {
-    margin-top: 0;
+    margin: calc(3 * var(--default-spacing)) auto var(--default-spacing) auto;
 }
 
 .title {
@@ -303,14 +317,14 @@ a.project:hover > .technologies > p.emphasize {
     --transition-duration: 1s;
     opacity: 0;
     filter: blur(5px);
-    transform: translate(-100px, 0px);
+    /* transform: translate(-100px, 0px); */
     transition: opacity var(--transition-duration), filter var(--transition-duration), transform calc(var(--transition-duration) / 2);
 }
 .intersection-right {
     --transition-duration: 1s;
     opacity: 0;
     filter: blur(5px);
-    transform: translate(100px, 0px);
+    /* transform: translate(100px, 0px); */
     transition: opacity var(--transition-duration), filter var(--transition-duration), transform calc(var(--transition-duration) / 2);
 }
 .show {
@@ -321,16 +335,16 @@ a.project:hover > .technologies > p.emphasize {
 
 #not-found-body {
     height: 100vh;
-    /* width: 600px;
-    max-width: calc(98vw - (100% - 98vw)); */
+    width: var(--width);
+    max-width: var(--max-width);
 
     display: grid;
     align-content: center;
     justify-content: center;
 }
 #not-found-section {
-    /* width: 600px;
-    max-width: calc(98vw - (100% - 98vw)); */
+    width: var(--width);
+    max-width: var(--max-width);
     margin: 0 auto;
 }
 #not-found-section > h1, #not-found-section > p {
@@ -341,7 +355,11 @@ a.project:hover > .technologies > p.emphasize {
     color: var(--theme-color);
 }
 
-@media screen and (max-width: 366px) {
+@media screen and (max-width: 500px) {
+    :root {
+        --max-width: 94vw;
+    }
+
     html, * {
         font-size: 1.7rem;
     }

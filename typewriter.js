@@ -1,5 +1,5 @@
 const title = document.getElementById('title');
-const texts = ['Webentwickler', 'Frontend', 'Backend' ,'Fullstack', 'NaN'];
+const texts = ['Webentwickler', 'Fullstack', 'NaN'];
 
 let metaindex = 0;
 let index = 0;
