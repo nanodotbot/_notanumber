@@ -12,6 +12,7 @@ const observer = new IntersectionObserver(entries => {
         if(entry.isIntersecting){
             entry.target.classList.add('show');
             // console.log('intersecting:', entry.target);
+            observer.unobserve(entry.target);
         } else {
             entry.target.classList.remove('show');
             // console.log('not intersecting:', entry.target);
