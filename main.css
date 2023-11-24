@@ -382,3 +382,12 @@ a.project:hover > .technologies > p.emphasize {
         font-size: var(--font-size-smallest);
     }    
 }
+
+@media(prefers-reduced-motion) {
+    .intersection-left {
+        transition: none;
+    }
+    .intersection-right {
+        transition: none;
+    }
+}
